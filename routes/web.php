@@ -13,10 +13,11 @@
 
 // front page route
 
-Route::get('/', 'Front\WebController@index');
-Route::get('job/{id}/{slug?}', 'Front\WebController@jobDetails')->name('job.details');
-Route::post('job-application', 'Front\WebController@jobApply')->name('job.application');
+// Route::get('/', 'Front\WebController@index');
+// Route::get('job/{id}/{slug?}', 'Front\WebController@jobDetails')->name('job.details');
+// Route::post('job-application', 'Front\WebController@jobApply')->name('job.application');
 
+Route::get('/', 'User\LoginController@index');
 // front page route
 
 Route::get('login', 'User\LoginController@index');
