@@ -43,6 +43,7 @@ function showMenu()
             ->join('menu_permission', 'menu_permission.menu_id', '=', 'menus.id')
             ->where('menu_permission.role_id', $role_id)
             ->where('menus.status', 1)
+            ->where('menus.module_id', 2)
             ->whereNull('action')
             ->orderBy('menus.id', 'ASC')
             ->get()->toJson(), true);
