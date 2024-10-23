@@ -383,8 +383,7 @@ if ($employeeInfo[0]->photo != '' &&  file_exists('uploads/employeePhoto/' . $em
         </div>
         <!-- /.container-fluid -->
         <footer class="footer text-center">
-            {{ date('Y') }} &copy; <strong><a href="https://codecanyon.net/user/bd-webtricks"
-                    target="_blank">BD-Webtricks</a>
+            {{ date('Y') }} &copy; <strong>SahabatCrew
             </strong> All rights reserved.
         </footer>
     </div>
