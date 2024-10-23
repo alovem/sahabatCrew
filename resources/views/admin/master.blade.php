@@ -17,8 +17,7 @@
     <!-- Bootstrap Core CSS -->
     <!-- <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}"> -->
     <!-- Menu CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="{!! asset('admin_assets/css/bootstrap.min.css') !!}" >
     <link href="{!! asset('admin_assets/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css') !!}" rel="stylesheet">
     <!-- toast CSS -->
     <link href="{!! asset('admin_assets/plugins/bower_components/toast-master/css/jquery.toast.css') !!}" rel="stylesheet">
