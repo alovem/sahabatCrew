@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="shortcut icon" href="{!! asset('admin_assets/img/logo.png') !!}" type="image/x-icon" />
-    <title>HRMS Login</title>
+    <title>SahabatCrew Login</title>
     <!-- Bootstrap Core CSS -->
     <link href="{!! asset('admin_assets/bootstrap/dist/css/bootstrap.min.css') !!}" rel="stylesheet">
     <!-- animation CSS -->
