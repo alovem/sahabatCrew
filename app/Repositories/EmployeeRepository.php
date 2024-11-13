@@ -30,6 +30,7 @@ class EmployeeRepository
         $employeeData['department_id']  = $data['department_id'];
         $employeeData['designation_id'] = $data['designation_id'];
         $employeeData['branch_id']      = $data['branch_id'];
+        $employeeData['company_id']      = $data['company_id'];
         $employeeData['supervisor_id']  = $data['supervisor_id'];
         $employeeData['work_shift_id']  = $data['work_shift_id'];
         $employeeData['pay_grade_id']   = $data['pay_grade_id'];

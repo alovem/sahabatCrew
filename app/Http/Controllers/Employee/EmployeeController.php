@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Employee;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\EmployeeRequest;
 use App\Model\Branch;
+use App\Model\Company;
 use App\Model\Department;
 use App\Model\Designation;
 use App\Model\Employee;
@@ -41,18 +42,18 @@ class EmployeeController extends Controller
 
         $results = Employee::with(['userName' => function ($q) {
             $q->with('role');
-        }, 'department', 'designation', 'branch', 'payGrade', 'supervisor', 'hourlySalaries'])
+        }, 'department', 'designation', 'branch', 'company', 'payGrade', 'supervisor', 'hourlySalaries'])
             ->orderBy('employee_id', 'DESC')->paginate(10);
 
         if (request()->ajax()) {
             if ($request->role_id != '') {
                 $results = Employee::whereHas('userName', function ($q) use ($request) {
                     $q->with('role')->where('role_id', $request->role_id);
-                })->with('department', 'designation', 'branch', 'payGrade', 'supervisor', 'hourlySalaries')->orderBy('employee_id', 'DESC');
+                })->with('department', 'designation', 'branch', 'company', 'payGrade', 'supervisor', 'hourlySalaries')->orderBy('employee_id', 'DESC');
             } else {
                 $results = Employee::with(['userName' => function ($q) {
                     $q->with('role');
-                }, 'department', 'designation', 'branch', 'payGrade', 'supervisor', 'hourlySalaries'])->orderBy('employee_id', 'DESC');
+                }, 'department', 'designation', 'branch', 'company', 'payGrade', 'supervisor', 'hourlySalaries'])->orderBy('employee_id', 'DESC');
             }
 
             if ($request->department_id != '') {
@@ -120,6 +121,7 @@ class EmployeeController extends Controller
         $departmentList     = Department::get();
         $designationList    = Designation::get();
         $branchList         = Branch::get();
+        $companyList        = Company::get();
         $workShiftList      = WorkShift::get();
         $supervisorList     = Employee::where('status', 1)->get();
         $payGradeList       = PayGrade::all();
@@ -131,6 +133,7 @@ class EmployeeController extends Controller
             'departmentList'     => $departmentList,
             'designationList'    => $designationList,
             'branchList'         => $branchList,
+            'companyList'        => $companyList,
             'supervisorList'     => $supervisorList,
             'workShiftList'      => $workShiftList,
             'payGradeList'       => $payGradeList,
@@ -190,6 +193,7 @@ class EmployeeController extends Controller
         $departmentList     = Department::get();
         $designationList    = Designation::get();
         $branchList         = Branch::get();
+        $companyList        = Company::get();
         $supervisorList     = Employee::where('status', 1)->get();
         $editModeData       = Employee::findOrFail($id);
         $workShiftList      = WorkShift::get();
@@ -206,6 +210,7 @@ class EmployeeController extends Controller
             'departmentList'                     => $departmentList,
             'designationList'                    => $designationList,
             'branchList'                         => $branchList,
+            'companyList'                        => $companyList,
             'supervisorList'                     => $supervisorList,
             'workShiftList'                      => $workShiftList,
             'payGradeList'                       => $payGradeList,

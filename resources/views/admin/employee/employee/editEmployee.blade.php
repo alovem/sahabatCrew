@@ -142,6 +142,19 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
+                                        <label for="exampleInput">@lang('company.company_name')</label>
+                                        <select name="company_id" class="form-control company_id select2">
+                                            <option value="">--- @lang('common.please_select') ---</option>
+                                            @foreach ($companyList as $value)
+                                                <option value="{{ $value->company_id }}"
+                                                    @if ($value->company_id == $editModeData->company_id) {{ 'selected' }} @endif>
+                                                    {{ $value->company_name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
                                         <label for="exampleInput">@lang('branch.branch_name')</label>
                                         <select name="branch_id" class="form-control branch_id select2">
                                             <option value="">--- @lang('common.please_select') ---</option>

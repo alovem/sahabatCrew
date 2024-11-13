@@ -11,7 +11,7 @@ class Employee extends Model
     protected $table      = 'employee';
     protected $primaryKey = 'employee_id';
     protected $fillable   = [
-        'employee_id', 'user_id', 'finger_id', 'department_id', 'designation_id', 'branch_id', 'supervisor_id', 'work_shift_id', 'email', 'first_name',
+        'employee_id', 'user_id', 'finger_id', 'department_id', 'designation_id', 'branch_id', 'company_id', 'supervisor_id', 'work_shift_id', 'email', 'first_name',
         'last_name', 'date_of_birth', 'date_of_joining', 'date_of_leaving', 'gender', 'marital_status',
         'photo', 'address', 'emergency_contacts', 'phone', 'status', 'created_by', 'updated_by', 'religion', 'pay_grade_id', 'hourly_salaries_id',
     ];
@@ -42,6 +42,14 @@ class Employee extends Model
         return $this->belongsTo(Branch::class, 'branch_id')->withDefault([
             'branch_id'   => 0,
             'branch_name' => 'N/A',
+        ]);
+    }
+
+    public function company()
+    {
+        return $this->belongsTo(Company::class, 'company_id')->withDefault([
+            'company_id'   => 0,
+            'company_name' => 'N/A',
         ]);
     }
 
