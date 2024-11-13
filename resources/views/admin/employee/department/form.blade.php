@@ -65,6 +65,33 @@
                                     @endif
                                 </div>
                             </div>
+							<div class="row">
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">Company<span
+                                                class="validateRq">*</span></label>
+                                        <div class="col-md-8">
+                                            <div class="form-group">
+												
+												<select name="company_id" class="form-control company_id select2">
+													<option value="">--- @lang('common.please_select') ---</option>
+													@foreach ($companyList as $value)
+														<option value="{{ $value->company_id }}"
+														 @if (isset($editModeData))
+															 @if ($value->company_id == $editModeData->company_id) {{ 'selected' }} @endif>
+														  @else
+															@if ($value->company_id == old('company_id')) {{ 'selected' }} @endif>
+														@endif
+														
+															{{ $value->company_name }}</option>
+
+													@endforeach
+												</select>
+											</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="row">
                                 <div class="col-md-8">
                                     <div class="form-group">

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Employee;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\DepartmentRequest;
 use App\Model\Department;
+use App\Model\Company;
+use App\Model\Branch;
 use App\Model\Employee;
 use Illuminate\Support\Facades\Log;
 
@@ -24,7 +26,15 @@ class DepartmentController extends Controller
 
     public function create()
     {
-        return view('admin.employee.department.form');
+		 $branchList         = Branch::get();
+		 $companyList        = Company::get();
+		 $data = [
+           
+            'branchList'         => $branchList,
+			'companyList'        => $companyList,
+            
+        ];
+        return view('admin.employee.department.form',$data);
     }
 
     public function store(DepartmentRequest $request)
@@ -41,9 +51,19 @@ class DepartmentController extends Controller
     }
 
     public function edit($id)
+
     {
+		$branchList         = Branch::get();
+		$companyList        = Company::get();
+		$data = [
+           
+            'branchList'         => $branchList,
+			'companyList'        => $companyList,
+            
+        ];
+		
         $editModeData = Department::findOrFail($id);
-        return view('admin.employee.department.form', ['editModeData' => $editModeData]);
+        return view('admin.employee.department.form', ['editModeData' => $editModeData,'companyList' => $companyList]);
     }
 
     public function update(DepartmentRequest $request, $id)
