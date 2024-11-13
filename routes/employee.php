@@ -29,6 +29,15 @@ Route::group(['middleware' => ['preventbackbutton', 'auth']], function () {
         Route::delete('/{branch}/delete', ['as' => 'branch.delete', 'uses' => 'Employee\BranchController@destroy']);
     });
 
+    Route::group(['prefix' => 'company'], function () {
+        Route::get('/', ['as' => 'company.index', 'uses' => 'Employee\CompanyController@index']);
+        Route::get('/create', ['as' => 'company.create', 'uses' => 'Employee\CompanyController@create']);
+        Route::post('/store', ['as' => 'company.store', 'uses' => 'Employee\CompanyController@store']);
+        Route::get('/{company}/edit', ['as' => 'company.edit', 'uses' => 'Employee\CompanyController@edit']);
+        Route::put('/{company}', ['as' => 'company.update', 'uses' => 'Employee\CompanyController@update']);
+        Route::delete('/{company}/delete', ['as' => 'company.delete', 'uses' => 'Employee\CompanyController@destroy']);
+    });
+
     Route::group(['prefix' => 'employee'], function () {
         Route::get('/', ['as' => 'employee.index', 'uses' => 'Employee\EmployeeController@index']);
         Route::get('/create', ['as' => 'employee.create', 'uses' => 'Employee\EmployeeController@create']);

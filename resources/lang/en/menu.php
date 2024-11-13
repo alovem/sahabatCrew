@@ -12,6 +12,7 @@ return [
     'department' => 'Department',
     'designation' => 'Designation',
     'branch' => 'Branch',
+    'company' => 'Company',
     'manage_employee' => 'Manage Employee',
     'warning' => 'Warning',
     'termination' => 'Termination',
