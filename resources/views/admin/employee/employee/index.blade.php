@@ -12,7 +12,7 @@
 			</ol>
 		</div>
 		<div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
-			<a href="{{ route('employee.bulk') }}"  class="btn btn-success pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light"> <i class="fa fa-plus-circle" aria-hidden="true"></i> @lang('employee.Bulk Upload')</a>
+			<!--a href="{{ route('employee.bulk') }}"  class="btn btn-success pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light"> <i class="fa fa-plus-circle" aria-hidden="true"></i> @lang('employee.Bulk Upload')</a-->
 			<a href="{{ route('employee.create') }}"  class="btn btn-success pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light"> <i class="fa fa-plus-circle" aria-hidden="true"></i> @lang('employee.add_employee')</a>
 		</div>
 	</div>

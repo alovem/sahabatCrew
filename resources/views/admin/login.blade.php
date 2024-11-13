@@ -37,7 +37,7 @@
     <section id="wrapper">
         <div class="container">
             <div class="row">
-                <div class="col-md-4"></div>
+                <div class="col-md-8"></div>
                 <div class="col-md-4">
                     <div class="white-box">
                         <h3 class="box-title m-b-0">Log In</h3>
@@ -122,7 +122,7 @@
 
                     </div>
                 </div>
-                <div class="col-md-4"></div>
+                <!--div class="col-md-4"></div -->
             </div>
         </div>
 

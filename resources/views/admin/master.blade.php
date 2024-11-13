@@ -218,7 +218,7 @@
                     <li><a href="javascript:void(0)" class="open-close waves-effect waves-light"><i
                                 class="ti-menu tiMenu"></i></a>
                     </li>
-                    <li class="dropdown">
+                    <!--li class="dropdown">
                         <a class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" href="#"
                             style="color:#fff"> {{ App::getLocale() }}
                             <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
@@ -241,8 +241,8 @@
 
                             </li>
                         </ul>
-                        <!-- /.dropdown-messages -->
-                    </li>
+                        
+                    </li-->
                 </ul>
                 <ul class="nav navbar-top-links navbar-right pull-right">
                     {{-- <li>
