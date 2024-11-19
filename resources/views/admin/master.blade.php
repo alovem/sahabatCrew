@@ -203,7 +203,7 @@
                     <!-- Logo -->
                     <a class="logo" href="{{ url('dashboard') }}">
                         <!-- Logo icon image, you can use font-icon also --><b>
-                            <!--This is dark logo icon--><img style="width: 75px;"
+                            <!--This is dark logo icon--><img style="width: 64px;"
                                 src="{{ url('uploads/front/' . $front_setting->logo) }}" alt="home"
                                 class="dark-logo img-fluid img-responsive" />
                         </b>
