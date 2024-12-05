@@ -383,7 +383,7 @@
               <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                 <tr>
                   <td class="content-block powered-by">
-                    Powered by <a target="_blank" href="https://braintricker.com" target="_blank">Royex</a>.
+                    Powered by <a target="_blank" href="#" target="_blank">SahabatCrew</a>.
                   </td>
                 </tr>
               </table>

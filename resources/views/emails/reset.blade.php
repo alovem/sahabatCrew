@@ -383,14 +383,10 @@
             <div class="footer">
               <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                 {{-- <tr align="center"> 
-                  <td class="content-block">
-                    <span class="apple-link">You Can Always reach us at <a href="https://rocketprep.com" style="color: #0198E1;"> https://rocketprep.com </a>  </span>
-                    <br> Don't like these emails? <a href="#">Unsubscribe</a>.
-                  </td>
                 </tr> --}}
                 <tr>
                   <td class="content-block powered-by">
-                    Powered by <a target="_blank" href="https://braintricker.com" target="_blank">Royex</a>.
+                    Powered by <a target="_blank" href="#" target="_blank">SahabatCrew</a>.
                   </td>
                 </tr>
               </table>
