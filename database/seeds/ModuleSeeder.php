@@ -26,6 +26,7 @@ class ModuleSeeder extends Seeder
                 ['name' => 'Award', 'icon_class' => 'mdi mdi-trophy-variant'],
                 ['name' => 'Notice Board', 'icon_class' => 'mdi mdi-flag'],
                 ['name' => 'Settings', 'icon_class' => 'mdi mdi-settings'],
+				['name' => 'Vessel', 'icon_class' => 'mdi mdi-settings'],
             ]
         );
     }
