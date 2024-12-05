@@ -25,7 +25,7 @@ function employeeInfo()
 
 function permissionCheck()
 {
-
+	
     $role_id       = session('logged_session_data.role_id');
     return $result = json_decode(DB::table('menus')->select('menu_url')
             ->join('menu_permission', 'menu_permission.menu_id', '=', 'menus.id')
@@ -36,14 +36,15 @@ function permissionCheck()
 
 function showMenu()
 {
-    $role_id = session('logged_session_data.role_id');
+    $examMenus = [1,12];
+	$role_id = session('logged_session_data.role_id');
     $modules = json_decode(DB::table('modules')->get()->toJson(), true);
     $menus   = json_decode(DB::table('menus')
             ->select(DB::raw('menus.id, menus.name, menus.menu_url, menus.parent_id, menus.module_id'))
             ->join('menu_permission', 'menu_permission.menu_id', '=', 'menus.id')
             ->where('menu_permission.role_id', $role_id)
             ->where('menus.status', 1)
-            ->where('menus.module_id', 2)
+            ->whereIn('menus.module_id', $examMenus)
             ->whereNull('action')
             ->orderBy('menus.id', 'ASC')
             ->get()->toJson(), true);
