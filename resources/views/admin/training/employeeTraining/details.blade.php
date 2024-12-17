@@ -1,7 +1,7 @@
 @extends('admin.master')
 @section('content')
 @section('title')
-@lang('training.employee_trainig_details')
+@lang('training.employee_training_details')
 @endsection
 
 	<div class="container-fluid">
@@ -40,13 +40,21 @@
 													@endif
 												</h5>
 												<h5>
-													<b>@lang('trainig.training_type'):</b>
+													<b>@lang('training.training_type'):</b>
 													@if(isset($result->trainingType->training_type_name))
 														{{$result->trainingType->training_type_name}}
 													@endif
 												</h5>
 												<h5>
-													<b>@lang('trainig.training_duration'):</b>
+													<b>@lang('training.subject'):</b>
+													{{$result->subject}}
+												</h5>
+												<h5>
+													<b>@lang('training.trainer'):</b>
+													{{$result->trainer}}
+												</h5>
+												<h5>
+													<b>@lang('training.training_duration'):</b>
 													{{dateConvertDBtoForm($result->start_date)}} To {{dateConvertDBtoForm($result->end_date	)}}
 												</h5>
 

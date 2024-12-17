@@ -39,6 +39,7 @@ Route::group(['middleware' => ['preventbackbutton','auth']], function(){
         Route::get('/{trainingInfo}/edit',['as'=>'trainingInfo.edit','uses'=>'AwardNoticeAndTraining\EmployeeTrainingController@edit']);
         Route::put('/{trainingInfo}',['as' => 'trainingInfo.update', 'uses'=>'AwardNoticeAndTraining\EmployeeTrainingController@update']);
         Route::delete('/{trainingInfo}/delete',['as'=>'trainingInfo.delete','uses'=>'AwardNoticeAndTraining\EmployeeTrainingController@destroy']);
+        Route::post('/findEmployeeInfo','AwardNoticeAndTraining\EmployeeTrainingController@findEmployeeInfo');
     });
 
 

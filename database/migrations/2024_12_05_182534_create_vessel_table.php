@@ -31,6 +31,6 @@ class CreateVesselTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('vessel');
     }
 }

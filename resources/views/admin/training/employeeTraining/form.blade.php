@@ -53,6 +53,16 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
+                                        <label for="exampleInput">@lang('training.department_id')<span
+                                                class="validateRq">*</span></label>
+                                        {{ Form::select('department_id', $departmentList, Input::old('department_id'), ['class' => 'form-control department_id required', 'id' => 'current_department', 'style' => 'pointer-events: none']) }}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                            <div class="col-md-4">
+                                    <div class="form-group">
                                         <label for="exampleInput">@lang('training.subject')<span
                                                 class="validateRq">*</span></label>
                                         {!! Form::text(
@@ -66,9 +76,6 @@
                                         ) !!}
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="row">
                                 <div class="col-md-4">
                                     <label for="exampleInput">@lang('common.from_date')<span
                                             class="validateRq">*</span></label>
@@ -103,18 +110,6 @@
                                         ) !!}
                                     </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="exampleInput">@lang('training.certificate')(JPG,JPEG,PNG,PDF)</label>
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><i class="fa fa-files-o"></i></span>
-                                            {!! Form::file(
-                                                'certificate',
-                                                $attributes = ['class' => 'form-control certificate', 'accept' => 'image/png, image/jpeg,image/jpg,.pdf'],
-                                            ) !!}
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
 
                             <div class="row">
@@ -128,10 +123,36 @@
                                                 'class' => 'form-control',
                                                 'id' => 'description',
                                                 'placeholder' => __('training.description'),
-                                                'cols' => '30',
+                                                'cols' => '20',
                                                 'rows' => '4',
                                             ],
                                         ) !!}
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="exampleInput">@lang('training.trainer')</label>
+                                        {!! Form::text(
+                                            'trainer',
+                                            Input::old('trainer'),
+                                            $attributes = [
+                                                'class' => 'form-control required trainer',
+                                                'id' => 'trainer',
+                                                'placeholder' => __('training.trainer'),
+                                            ],
+                                        ) !!}
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="exampleInput">@lang('training.certificate')(JPG,JPEG,PNG,PDF)</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-files-o"></i></span>
+                                            {!! Form::file(
+                                                'certificate',
+                                                $attributes = ['class' => 'form-control certificate', 'accept' => 'image/png, image/jpeg,image/jpg,.pdf'],
+                                            ) !!}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -154,4 +175,30 @@
         </div>
     </div>
 </div>
+@endsection
+@section('page_scripts')
+<script>
+    $(document).ready(function () {
+        $('select[name="employee_id"]').change(function() {
+            var employee_id = $('select[name="employee_id"]').val();
+            if (employee_id != '') {
+                var action = "{{ URL::to('trainingInfo/findEmployeeInfo') }}";
+                $.ajax({
+                    type: 'POST',
+                    url: action,
+                    data: {
+                        'employee_id': employee_id,
+                        '_token': $('input[name=_token]').val()
+                    },
+                    success: function(data) {
+                        console.log(data);
+                        $('#current_department').val(data.department.department_id).trigger("change");
+                    }
+                });
+            } else {
+                $('#current_department').val('');
+            }
+        });
+    });
+</script>
 @endsection

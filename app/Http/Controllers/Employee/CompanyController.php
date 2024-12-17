@@ -42,7 +42,7 @@ class CompanyController extends Controller
     public function edit($id)
     {
         $editModeData = Company::findOrFail($id);
-        return view('admin.employee.compnay.form', ['editModeData' => $editModeData]);
+        return view('admin.employee.training.form', ['editModeData' => $editModeData]);
     }
 
     public function update(CompanyRequest $request, $id)

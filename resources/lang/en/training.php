@@ -18,5 +18,6 @@ return [
     'description' => 'Description',
     'employee_training_report' => 'Employee Training Report',
     'employee_training_details' => 'Employee Training Details',
+    'trainer' => 'Trainer'
 
 ];

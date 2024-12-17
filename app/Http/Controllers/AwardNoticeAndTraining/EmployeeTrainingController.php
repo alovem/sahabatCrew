@@ -5,8 +5,10 @@ namespace App\Http\Controllers\AwardNoticeAndTraining;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\EmployeeTrainingRequest;
 use App\Model\TrainingInfo;
+use App\Model\Employee;
 use App\Repositories\CommonRepository;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class EmployeeTrainingController extends Controller
 {
@@ -28,7 +30,9 @@ class EmployeeTrainingController extends Controller
     {
         $employeeList     = $this->commonRepository->employeeList();
         $trainingTypeList = $this->commonRepository->trainingTypeList();
-        return view('admin.training.employeeTraining.form', ['employeeList' => $employeeList, 'trainingTypeList' => $trainingTypeList]);
+        $departmentList  = $this->commonRepository->departmentList();
+        
+        return view('admin.training.employeeTraining.form', ['employeeList' => $employeeList, 'trainingTypeList' => $trainingTypeList, 'departmentList'  => $departmentList]);
     }
 
     public function store(EmployeeTrainingRequest $request)
@@ -60,7 +64,9 @@ class EmployeeTrainingController extends Controller
         $editModeData     = TrainingInfo::FindOrFail($id);
         $employeeList     = $this->commonRepository->employeeList();
         $trainingTypeList = $this->commonRepository->trainingTypeList();
-        return view('admin.training.employeeTraining.form', ['employeeList' => $employeeList, 'trainingTypeList' => $trainingTypeList, 'editModeData' => $editModeData]);
+        $departmentList  = $this->commonRepository->departmentList();
+
+        return view('admin.training.employeeTraining.form', ['employeeList' => $employeeList, 'trainingTypeList' => $trainingTypeList, 'editModeData' => $editModeData, 'departmentList'  => $departmentList]);
     }
 
     public function update(EmployeeTrainingRequest $request, $id)
@@ -121,6 +127,11 @@ class EmployeeTrainingController extends Controller
         } else {
             echo 'error';
         }
+    }
+
+    public function findEmployeeInfo(Request $request)
+    {
+        return Employee::with('department')->where('employee_id', $request->employee_id)->first();
     }
 
 }

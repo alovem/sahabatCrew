@@ -34,6 +34,7 @@ class EmployeeTrainingRequest extends FormRequest
                 'end_date'         => 'required',
                 'certificate'      => 'nullable|mimes:jpeg,jpg,png,pdf|max:1024',
                 'description'      => 'required',
+                'trainer'          => 'required'
             ];
         }
         return [
@@ -44,6 +45,7 @@ class EmployeeTrainingRequest extends FormRequest
             'end_date'         => 'required',
             'certificate'      => 'mimes:jpeg,jpg,png,pdf|max:1024',
             'description'      => 'required',
+            'trainer'          => 'required'
         ];
 
     }

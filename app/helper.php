@@ -36,7 +36,7 @@ function permissionCheck()
 
 function showMenu()
 {
-    $examMenus = [1,12];
+    $examMenus = [1,2,3,8,12];
 	$role_id = session('logged_session_data.role_id');
     $modules = json_decode(DB::table('modules')->get()->toJson(), true);
     $menus   = json_decode(DB::table('menus')

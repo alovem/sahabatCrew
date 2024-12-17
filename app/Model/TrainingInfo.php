@@ -10,7 +10,7 @@ class TrainingInfo extends Model
     protected $primaryKey = 'training_info_id';
 
     protected $fillable = [
-        'training_info_id', 'training_type_id','employee_id','subject','start_date','end_date','description','certificate','created_by','updated_by'
+        'training_info_id', 'training_type_id','employee_id','department_id','subject','start_date','end_date','description','certificate','trainer','created_by','updated_by'
     ];
 
 
