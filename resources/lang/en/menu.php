@@ -76,7 +76,7 @@ return [
     'front_setting' => 'Front Setting',
     'general_setting' => 'General Setting',
     'front_service' => 'Front  Services',
-    
     'vessel_management' => 'Vessel Management',
     'vessel' => 'Vessel',
+	'vessel_schedule' => 'Vessel Schedule',
 ];

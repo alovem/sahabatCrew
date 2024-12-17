@@ -10,5 +10,15 @@ Route::group(['middleware' => ['preventbackbutton','auth']], function(){
         Route::put('/{vessel}', ['as' => 'vessel.update', 'uses' => 'Vessel\VesselController@update']);
         Route::delete('/{vessel}/delete', ['as' => 'vessel.delete', 'uses' => 'Vessel\VesselController@destroy']);
     });
+	
+	Route::group(['prefix' => 'vesselSchedule'], function () {
+        Route::get('/', ['as' => 'vesselSchedule.index', 'uses' => 'Vessel\VesselScheduleController@index']);
+        Route::get('/create', ['as' => 'vesselSchedule.create', 'uses' => 'Vessel\VesselScheduleController@create']);
+        Route::post('/store', ['as' => 'vesselSchedule.store', 'uses' => 'Vessel\VesselScheduleController@store']);
+        Route::get('/{vesselSchedule}/edit', ['as' => 'vesselSchedule.edit', 'uses' => 'Vessel\VesselScheduleController@edit']);
+        Route::put('/{vesselSchedule}', ['as' => 'vesselSchedule.update', 'uses' => 'Vessel\VesselScheduleController@update']);
+        Route::delete('/{vesselSchedule}/delete', ['as' => 'vesselSchedule.delete', 'uses' => 'Vessel\VesselScheduleController@destroy']);
+    });
+	
 });
 
